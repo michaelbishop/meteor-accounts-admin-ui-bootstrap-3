@@ -20,6 +20,12 @@
 					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="profile.name" value="{{profile.name}}" placeholder="{{email}}">
 				</div>
 			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">Username</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="username" value="{{username}}">
+				</div>
+			</div>
 			{{#if roles}}
 				<ul class="list-group">
 					{{#each roles}}

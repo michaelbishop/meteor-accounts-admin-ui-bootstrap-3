@@ -91,12 +91,14 @@ Meteor.methods({
 	},
 
 	updateUserInfo: function(id, property, value) {
+		console.log( 'updateUserInfo:', id, property, value );
+
 		var user = Meteor.user();
 		if (!user || !Roles.userIsInRole(user, ['admin']))
 			throw new Meteor.Error(401, "You need to be an admin to update a user.");
 
-		if (property !== 'profile.name')
-			throw new Meteor.Error(422, "Only 'name' is supported.");
+		if (!_.contains(['profile.name', 'username'], property))
+			throw new Meteor.Error(422, "Only 'name' and 'username' is supported.");
 
 		obj = {};
 		obj[property] = value;

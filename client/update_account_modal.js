@@ -73,6 +73,8 @@ Template.updateAccountModalInner.events({
 		var ele = event.currentTarget;
 		var userId = ele.getAttribute('data-user-id');
 
+		console.log( 'update user info:', userId, ele.name, ele.value );
+
 		Meteor.call('updateUserInfo', userId, ele.name, ele.value, function(error) {
 			if (error)
 			{
